@@ -26,4 +26,18 @@ function formatarCPF(cpf) {
   return cpf.replace(cpfRegex, "$1.$2.$3-$4");
 }
 
+
+function copiarCPF() {
+  const cpf = cpfEl.innerText
+  navigator.clipboard.writeText(cpf).then(() => {
+    alert(`CPF ${cpf} copiado para a área de transfêrencia.`)
+  },
+  (erro) => {
+    console.log('Erro ao copiar CPF');
+   }
+  );
+}
+
+copiarCpfBtn.addEventListener('click', copiarCPF)
 gerarCpfBtn.addEventListener('click', gerarCPF)
+
